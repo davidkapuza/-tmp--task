@@ -1,0 +1,29 @@
+@use "@material/theme" with (
+  $primary: #6daea7,
+  $on-primary: #222222,
+  $secondary: #114F40,
+  $on-secondary: #ECE0A9,
+  
+);
+
+// colors 
+$white: #ffff;
+$gray: #909ea0;
+$light-gray: #E9E9E9;
+$primary-bg: #f9f9f9;
+$secondary-bg: #eaf9f2;
+
+// sizes
+
+$top-app-bar-height: 100px;
+$primary-boreder-radius: 1em;
+
+// breackpoints
+
+$md-breackpoint: 992px;
+$sm-breackpoint: 768px;
+
+// shadows
+
+$primary-shadow: 0 4px 14px rgb(182 192 203 / 5%);
+

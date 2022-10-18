@@ -1,0 +1,31 @@
+@use "./core" as *;
+
+@mixin section-title {
+  font-size: 80px;
+  font-weight: 600;
+  margin: 0;
+}
+@mixin section-subheader {
+  font-size: 32px;
+  font-weight: 500;
+}
+@mixin section-text {
+  color: $gray;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 170%;
+  margin-top: 3em;
+}
+
+@mixin filtration-labels {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding-inline: 0.5em;
+}
+
+@mixin expenses-list-item {
+  font-size: 26px;
+  margin-right: 20%;
+  font-weight: 500;
+}
