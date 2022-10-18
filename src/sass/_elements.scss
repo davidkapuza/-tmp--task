@@ -1,0 +1,97 @@
+@use "./core" as *;
+@use "@material/theme" as *;
+@use "@material/textfield";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/list/mdc-list";
+@use "@material/menu-surface/mdc-menu-surface";
+@use "@material/menu/mdc-menu";
+@use "@material/select";
+@use "@material/icon-button";
+
+.background-image {
+  background-image: url("../assets/expences-box-illustration.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  @media (max-width: $sm-breackpoint) {
+    background-image: none;
+  }
+}
+
+// ! Avatar
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+// ! Divider
+
+.divider {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 13px;
+  margin-block: 1em;
+  &::after {
+    margin-left: 1em;
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid currentColor;
+  }
+}
+
+// ! Search 
+
+.mdc-text-field--outlined.search-text-field {
+  width: 100%;
+  @include textfield.outline-color(transparent);
+  @include textfield.hover-outline-color(transparent);
+  @include textfield.disabled-outline-color(transparent);
+  @include textfield.focused-outline-color(transparent);
+}
+
+// ! Datepicker
+
+.mdc-text-field--outlined.datepicker-text-field {
+  min-width: 180px;
+  @include textfield.outline-shape-radius(50%);
+  @include textfield.outlined-with-leading-icon-height(34px);
+  @include textfield.outline-color($on-primary);
+}
+
+// ! Select
+
+.category-select {
+  max-width: 52px;
+  // TODO Add variable for black
+  @include select.label-floating-color($on-primary);
+  @include select.outline-color(
+    (
+      "default": transparent,
+      "hover": transparent,
+      "focus": transparent,
+      "disabled": transparent,
+    )
+  );
+
+  .mdc-select__selected-text {
+    border-bottom: 1px solid;
+    border-color: $on-primary;  
+    width: max-content;
+  }
+}
+
+
+// ! Scroll to the top btn
+
+.scroll-to-the-top {
+  margin-block: 4em;
+  background-color: $white;
+  box-shadow: $primary-shadow;
+  border-radius: 50%;
+  @include icon-button.size(150px)
+}
