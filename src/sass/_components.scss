@@ -146,7 +146,6 @@
     .mdc-list-item {
       height: 106px;
       align-items: center;
-      justify-content: space-between;
       background-color: $white;
       border-radius: $primary-boreder-radius;
       margin-block: 1.5em;
@@ -155,9 +154,17 @@
 
       &__title {
         @include typography.expenses-list-item;
+        margin-right: auto;
       }
       &__price::before {
         content: "-";
+      }
+      &__price {
+        width: 30%;
+        text-align: right;
+      }
+      &__label {
+        width: 25%;
       }
       &__label::before {
         content: "\2014\0020";
