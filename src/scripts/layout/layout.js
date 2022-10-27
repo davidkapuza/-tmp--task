@@ -1,25 +1,16 @@
 import $ from "jquery";
 import { MDCDrawer } from "@material/drawer";
 import { MDCRipple } from "@material/ripple";
-import { MDCTopAppBar } from "@material/top-app-bar";
 
 $(function () {
-
-  // Top app bar
-
-  const topAppBarElements = document.querySelectorAll(".mdc-top-app-bar");
-  topAppBarElements.forEach((topAppBar) => {
-    new MDCTopAppBar(topAppBar).listen("MDCTopAppBar:nav", (e) => {
-      drawer.open = !drawer.open;
-    });
-  });
 
   // Navigation Drawer
 
   const drawer = MDCDrawer.attachTo(document.querySelector(".mdc-drawer"));
 
-  $(".mdc-drawer .mdc-list").on("click", () => {
-    drawer.open = false;
+  $(".mdc-drawer .mdc-list, .mdc-top-app-bar__navigation-icon").on("click", () => {
+    $("body").css("overflow", `${drawer.open ? "scroll" : "hidden"}`);
+    drawer.open = !drawer.open;
   });
 
   document.body.addEventListener("MDCDrawer:closed", () => {

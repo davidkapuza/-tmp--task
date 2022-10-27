@@ -5,7 +5,7 @@ import { expensesGroupTemplate } from "../utils/templates";
 export default function renderExpenses(filteredExpenses) {
   let expenses = filteredExpenses ?? initialExpenses;
 
-  // $(".expenses-list").html("");
+  $(".expenses-list").html("");
   expenses.forEach(({ month, expenses }) => {
     $(".expenses-list").append(expenses.length ? expensesGroupTemplate(month, expenses) : "");
   });

@@ -7,7 +7,7 @@ export default function renderSummary() {
 
   $(".summary-list").html("");
 
-  expenses = expenses.reduce(
+  let expensesPerGroup = expenses.reduce(
     (acc, { month, expenses }) => {
       expenses.forEach(({ category, price: { amount } }) => {
         acc["Per period"][month]
@@ -22,14 +22,14 @@ export default function renderSummary() {
     { ["Per period"]: {}, ["Per category"]: {} }
   );
 
-  const total = Object.entries(expenses).reduce((acc, [, groupExpenses]) => {
+  const total = Object.entries(expensesPerGroup).reduce((acc, [, groupExpenses]) => {
     Object.values(groupExpenses).forEach((expense) => (acc += expense));
     return acc;
   }, 0);
 
   $(".summary-box-header__subheader").append("Total: -" + total)
 
-  Object.entries(expenses).forEach(([group, groupExpenses]) => {
+  Object.entries(expensesPerGroup).forEach(([group, groupExpenses]) => {
     $(".summary-list").append(summaryGroupTemplate(group, groupExpenses));
   });
 }

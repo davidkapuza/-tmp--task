@@ -10,6 +10,7 @@
 
 .mdc-top-app-bar {
   @include top-app-bar.fill-color(transparent);
+  box-shadow: none;
   &__row {
     height: $top-app-bar-height;
   }
@@ -25,6 +26,7 @@
       // TODO mixin for flex
       flex-direction: row-reverse;
       justify-content: flex-start;
+      padding-inline: 16px;
     }
   }
 }
@@ -98,11 +100,18 @@
     }
     & .mdc-list {
       padding-top: 5em;
+      @media (max-width: $xs-breackpoint) {
+        padding-top: 1em;
+      }
     }
     & .mdc-list-item {
       font-size: 70px;
       height: 100px;
       align-items: center;
+      @media (max-width: $xs-breackpoint) {
+        font-size: 40px;
+        height: 70px;
+      }
 
       &:not(.mdc-list-item--activated):hover::before {
         content: "\2014"; /* Em dash */
@@ -119,6 +128,9 @@
   &__logout-button {
     position: absolute;
     inset: auto auto 3em 3em;
+    @media (max-width: $sm-breackpoint) {
+      left: 16px;
+    }
   }
 }
 
@@ -151,6 +163,21 @@
       margin-block: 1.5em;
       padding-inline: 2em;
       box-shadow: $primary-shadow;
+      @media (max-width: $xs-breackpoint) {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding-block: 1em;
+        &__price {
+          position: absolute;
+          right: 2em;
+          bottom: 1em;
+        }
+        &__title {
+          padding-bottom: 2em;
+          margin-right: auto;
+        }
+      }
 
       &__title {
         @include typography.expenses-list-item;

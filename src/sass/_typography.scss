@@ -4,6 +4,9 @@
   font-size: 80px;
   font-weight: 600;
   margin: 0;
+  @media (max-width: $xs-breackpoint) {
+    font-size: 60px;
+  }
 }
 @mixin section-subheader {
   font-size: 32px;
